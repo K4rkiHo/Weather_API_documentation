@@ -56,4 +56,118 @@ Tento endpoint slouží k registraci uživatele pomocí jména a hesla a ID mete
 }
 ```
 
+## Validace 
+
+`{{baseUrl}}/api/is_valid`
+
+## Popis
+
+Tento endpoint slouží k validaci API serveru.
+
+## Response Body 200
+```json
+{
+    "valid_token": 1
+}
+```
+
+## Sloupace databáze 
+
+`{{baseUrl}}/api/columns`
+
+## Popis
+
+Tento endpoint slouží k získání názvů sloupců databáze. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "rows": [
+        "id",
+        "time",
+        "indoor_temperature_F",
+        "indoor_humidity_percent",
+        "pressure_relative_inHg",
+        "pressure_absolute_inHg",
+        "outdoor_temperature_F",
+        "outdoor_humidity_percent",
+        "wind_angle",
+        "wind_speed_mph",
+        "wind_gust_mph",
+        "wind_gust_max_mph",
+        "solar_radiation_Wm2",
+        "solar_uv",
+        "rain_rate_inhr",
+        "rain_event_in",
+        "rain_hourly_in",
+        "rain_weekly_in",
+        "rain_yearly_in",
+        "rain_total_in",
+        "temp_ch1_F",
+        "temp_humidity_percent",
+        "battery_wh65",
+        "battery_bat"
+    ]
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+## Sloupace databáze 
+
+`{{baseUrl}}/api/columns`
+
+## Popis
+
+Tento endpoint slouží k získání názvů sloupců databáze. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "rows": [
+        "id",
+        "time",
+        "indoor_temperature_F",
+        "indoor_humidity_percent",
+        "pressure_relative_inHg",
+        "pressure_absolute_inHg",
+        "outdoor_temperature_F",
+        "outdoor_humidity_percent",
+        "wind_angle",
+        "wind_speed_mph",
+        "wind_gust_mph",
+        "wind_gust_max_mph",
+        "solar_radiation_Wm2",
+        "solar_uv",
+        "rain_rate_inhr",
+        "rain_event_in",
+        "rain_hourly_in",
+        "rain_weekly_in",
+        "rain_yearly_in",
+        "rain_total_in",
+        "temp_ch1_F",
+        "temp_humidity_percent",
+        "battery_wh65",
+        "battery_bat"
+    ]
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+
+
+
+
 
