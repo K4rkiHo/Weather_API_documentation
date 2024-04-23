@@ -212,7 +212,7 @@ Tento endpoint GET slouží k získání posledních meteorologických dat z dat
 }
 ```
 
-## Poslední získáné meteorologické data z databáze 
+## Poslední získáné meteorologické data z databáze z dnešního dne
 
 `{{baseUrl}}/api/data/meteostation/today`
 
@@ -337,6 +337,223 @@ Tento endpoint GET slouží k získání všech meteorologických dat z databáz
     "msg": "Missing Authorization Header"
 }
 ```
+
+## Získáné meteorologické data z databáze pro vybraný den 
+
+`{{baseUrl}}/api/data/meteostation/today/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech meteorologických dat z databáze pro den <date>. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 35617,
+        "indoor_humidity_percent": "46.00",
+        "indoor_temperature_F": "64.76",
+        "outdoor_humidity_percent": "83.00",
+        "outdoor_temperature_F": "30.56",
+        "pressure_absolute_inHg": "29.23",
+        "pressure_relative_inHg": "29.23",
+        "rain_event_in": "0.80",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.68",
+        "rain_weekly_in": "0.13",
+        "rain_yearly_in": "5.68",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "67.82",
+        "temp_humidity_percent": "49.00",
+        "time": "Tue, 23 Apr 2024 00:04:41 GMT",
+        "wind_angle": "113.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 35618,
+        "indoor_humidity_percent": "47.00",
+        "indoor_temperature_F": "64.94",
+        "outdoor_humidity_percent": "85.00",
+        "outdoor_temperature_F": "30.02",
+        "pressure_absolute_inHg": "29.22",
+        "pressure_relative_inHg": "29.22",
+        "rain_event_in": "0.80",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.68",
+        "rain_weekly_in": "0.13",
+        "rain_yearly_in": "5.68",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "67.82",
+        "temp_humidity_percent": "50.00",
+        "time": "Tue, 23 Apr 2024 00:14:42 GMT",
+        "wind_angle": "113.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 35619,
+        "indoor_humidity_percent": "48.00",
+        "indoor_temperature_F": "64.04",
+        "outdoor_humidity_percent": "85.00",
+        "outdoor_temperature_F": "29.84",
+        "pressure_absolute_inHg": "29.22",
+        "pressure_relative_inHg": "29.22",
+        "rain_event_in": "0.80",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.68",
+        "rain_weekly_in": "0.13",
+        "rain_yearly_in": "5.68",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "67.64",
+        "temp_humidity_percent": "49.00",
+        "time": "Tue, 23 Apr 2024 00:24:43 GMT",
+        "wind_angle": "113.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 35620,
+        "indoor_humidity_percent": "47.00",
+        "indoor_temperature_F": "64.04",
+        "outdoor_humidity_percent": "85.00",
+        "outdoor_temperature_F": "29.84",
+        "pressure_absolute_inHg": "29.22",
+        "pressure_relative_inHg": "29.22",
+        "rain_event_in": "0.80",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.68",
+        "rain_weekly_in": "0.13",
+        "rain_yearly_in": "5.68",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "67.28",
+        "temp_humidity_percent": "49.00",
+        "time": "Tue, 23 Apr 2024 00:34:44 GMT",
+        "wind_angle": "113.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    }
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+## Poslední získáné maximální meteorologické data z databáze za dnešní den 
+
+`{{baseUrl}}/api/data/meteostation/today/max`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech maximálních meteorologických dat z databáze za dnešní den. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "battery_bat": "0.00",
+    "battery_wh65": "0.00",
+    "id": 35683,
+    "indoor_humidity_percent": "48.00",
+    "indoor_temperature_F": "69.62",
+    "outdoor_humidity_percent": "88.00",
+    "outdoor_temperature_F": "51.26",
+    "pressure_absolute_inHg": "29.23",
+    "pressure_relative_inHg": "29.23",
+    "rain_event_in": "0.80",
+    "rain_hourly_in": "0.00",
+    "rain_rate_inhr": "0.00",
+    "rain_total_in": "5.68",
+    "rain_weekly_in": "0.13",
+    "rain_yearly_in": "5.68",
+    "solar_radiation_Wm2": "462.43",
+    "solar_uv": "4.00",
+    "temp_ch1_F": "69.62",
+    "temp_humidity_percent": "52.00",
+    "time": "Tue, 23 Apr 2024 20:16:46 GMT",
+    "wind_angle": "187.00",
+    "wind_gust_max_mph": "20.13",
+    "wind_gust_mph": "17.45",
+    "wind_speed_mph": "11.63"
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+## Poslední získáné minimální meteorologické data z databáze za dnešní den 
+
+`{{baseUrl}}/api/data/meteostation/today/min`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech minimálních meteorologických dat z databáze za dnešní den. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "battery_bat": "0.00",
+    "battery_wh65": "0.00",
+    "id": 35617,
+    "indoor_humidity_percent": "43.00",
+    "indoor_temperature_F": "61.88",
+    "outdoor_humidity_percent": "58.00",
+    "outdoor_temperature_F": "29.12",
+    "pressure_absolute_inHg": "28.93",
+    "pressure_relative_inHg": "28.93",
+    "rain_event_in": "0.00",
+    "rain_hourly_in": "0.00",
+    "rain_rate_inhr": "0.00",
+    "rain_total_in": "5.68",
+    "rain_weekly_in": "0.13",
+    "rain_yearly_in": "5.68",
+    "solar_radiation_Wm2": "0.00",
+    "solar_uv": "0.00",
+    "temp_ch1_F": "64.40",
+    "temp_humidity_percent": "49.00",
+    "time": "Tue, 23 Apr 2024 00:04:41 GMT",
+    "wind_angle": "36.00",
+    "wind_gust_max_mph": "0.00",
+    "wind_gust_mph": "0.00",
+    "wind_speed_mph": "0.00"
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
 
 
 
