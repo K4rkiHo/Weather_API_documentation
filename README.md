@@ -847,9 +847,554 @@ Tento endpoint GET slouží k získání meteorologických dat z databáze za vy
 
 
 
+# Získávání agregovaných meteorologických dat
+
+##  Získání všech hodinových agregovaných meteorologický data z databáze 
+
+`{{baseUrl}}/api/data/aggregated`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech hodinových agregovaných meteorologických dat z databáze. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 1,
+        "indoor_humidity_percent": "59.60",
+        "indoor_temperature_F": "76.39",
+        "outdoor_humidity_percent": "84.00",
+        "outdoor_temperature_F": "64.83",
+        "pressure_absolute_inHg": "28.70",
+        "pressure_relative_inHg": "28.70",
+        "rain_event_in": "1.40",
+        "rain_hourly_in": "0.05",
+        "rain_rate_inhr": "0.04",
+        "rain_total_in": "13.17",
+        "rain_weekly_in": "1.40",
+        "rain_yearly_in": "13.17",
+        "solar_radiation_Wm2": "118.08",
+        "solar_uv": "1.00",
+        "temp_ch1_F": "78.04",
+        "temp_humidity_percent": "56.00",
+        "time": "Tue, 25 Jul 2023 13:00:00 GMT",
+        "wind_angle": "234.00",
+        "wind_gust_max_mph": "9.39",
+        "wind_gust_mph": "7.38",
+        "wind_speed_mph": "2.95"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 2,
+        "indoor_humidity_percent": "60.50",
+        "indoor_temperature_F": "76.22",
+        "outdoor_humidity_percent": "84.17",
+        "outdoor_temperature_F": "64.82",
+        "pressure_absolute_inHg": "28.69",
+        "pressure_relative_inHg": "28.69",
+        "rain_event_in": "1.42",
+        "rain_hourly_in": "0.03",
+        "rain_rate_inhr": "0.01",
+        "rain_total_in": "13.19",
+        "rain_weekly_in": "1.42",
+        "rain_yearly_in": "13.19",
+        "solar_radiation_Wm2": "121.19",
+        "solar_uv": "0.83",
+        "temp_ch1_F": "77.57",
+        "temp_humidity_percent": "56.67",
+        "time": "Tue, 25 Jul 2023 14:00:00 GMT",
+        "wind_angle": "262.17",
+        "wind_gust_max_mph": "11.41",
+        "wind_gust_mph": "2.99",
+        "wind_speed_mph": "1.60"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 3,
+        "indoor_humidity_percent": "59.83",
+        "indoor_temperature_F": "75.77",
+        "outdoor_humidity_percent": "78.67",
+        "outdoor_temperature_F": "65.84",
+        "pressure_absolute_inHg": "28.68",
+        "pressure_relative_inHg": "28.68",
+        "rain_event_in": "1.42",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "13.19",
+        "rain_weekly_in": "1.42",
+        "rain_yearly_in": "13.19",
+        "solar_radiation_Wm2": "133.80",
+        "solar_uv": "0.83",
+        "temp_ch1_F": "77.24",
+        "temp_humidity_percent": "56.83",
+        "time": "Tue, 25 Jul 2023 15:00:00 GMT",
+        "wind_angle": "249.17",
+        "wind_gust_max_mph": "11.41",
+        "wind_gust_mph": "3.02",
+        "wind_speed_mph": "0.86"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání hodinových agregovaných meteorologický data z databáze za vybraný den 
+
+`{{baseUrl}}/api/data/aggregated/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání hodinových agregovaných meteorologických dat z databáze za vybraný den. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 9625,
+        "indoor_humidity_percent": "57.67",
+        "indoor_temperature_F": "67.79",
+        "outdoor_humidity_percent": "92.83",
+        "outdoor_temperature_F": "48.83",
+        "pressure_absolute_inHg": "28.95",
+        "pressure_relative_inHg": "28.95",
+        "rain_event_in": "0.05",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "4.42",
+        "rain_weekly_in": "1.23",
+        "rain_yearly_in": "4.42",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "69.41",
+        "temp_humidity_percent": "58.00",
+        "time": "Thu, 04 Apr 2024 00:00:00 GMT",
+        "wind_angle": "258.50",
+        "wind_gust_max_mph": "0.82",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 9626,
+        "indoor_humidity_percent": "57.83",
+        "indoor_temperature_F": "67.28",
+        "outdoor_humidity_percent": "93.67",
+        "outdoor_temperature_F": "48.29",
+        "pressure_absolute_inHg": "28.94",
+        "pressure_relative_inHg": "28.94",
+        "rain_event_in": "0.05",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "4.42",
+        "rain_weekly_in": "1.23",
+        "rain_yearly_in": "4.42",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "68.87",
+        "temp_humidity_percent": "58.00",
+        "time": "Thu, 04 Apr 2024 01:00:00 GMT",
+        "wind_angle": "257.33",
+        "wind_gust_max_mph": "2.46",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 9627,
+        "indoor_humidity_percent": "57.00",
+        "indoor_temperature_F": "66.89",
+        "outdoor_humidity_percent": "94.00",
+        "outdoor_temperature_F": "47.27",
+        "pressure_absolute_inHg": "28.93",
+        "pressure_relative_inHg": "28.93",
+        "rain_event_in": "0.05",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "4.42",
+        "rain_weekly_in": "1.23",
+        "rain_yearly_in": "4.42",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "68.57",
+        "temp_humidity_percent": "58.00",
+        "time": "Thu, 04 Apr 2024 02:00:00 GMT",
+        "wind_angle": "262.00",
+        "wind_gust_max_mph": "4.92",
+        "wind_gust_mph": "0.82",
+        "wind_speed_mph": "0.11"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání agregovaných meteorologický data z databáze za vybraný den 
+
+`{{baseUrl}}/api/data/daily/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání agregovaných meteorologických dat z databáze za vybraný den. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 308,
+        "indoor_humidity_percent": "53.99",
+        "indoor_temperature_F": "67.98",
+        "outdoor_humidity_percent": "78.86",
+        "outdoor_temperature_F": "53.59",
+        "pressure_absolute_inHg": "28.96",
+        "pressure_relative_inHg": "28.96",
+        "rain_event_in": "0.05",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "4.43",
+        "rain_weekly_in": "1.24",
+        "rain_yearly_in": "4.43",
+        "solar_radiation_Wm2": "86.46",
+        "solar_uv": "0.62",
+        "temp_ch1_F": "68.25",
+        "temp_humidity_percent": "56.99",
+        "week_start": "Thu, 04 Apr 2024 00:00:00 GMT",
+        "wind_angle": "261.38",
+        "wind_gust_max_mph": "19.99",
+        "wind_gust_mph": "7.85",
+        "wind_speed_mph": "3.05"
+    }
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání všech agregovaných meteorologický data z databáze
+
+`{{baseUrl}}/api/data/daily`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech agregovaných meteorologických dat z databáze. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 1,
+        "indoor_humidity_percent": "59.66",
+        "indoor_temperature_F": "76.14",
+        "outdoor_humidity_percent": "85.41",
+        "outdoor_temperature_F": "63.85",
+        "pressure_absolute_inHg": "28.69",
+        "pressure_relative_inHg": "28.69",
+        "rain_event_in": "1.48",
+        "rain_hourly_in": "0.03",
+        "rain_rate_inhr": "0.02",
+        "rain_total_in": "13.25",
+        "rain_weekly_in": "1.48",
+        "rain_yearly_in": "13.25",
+        "solar_radiation_Wm2": "72.81",
+        "solar_uv": "0.45",
+        "temp_ch1_F": "78.04",
+        "temp_humidity_percent": "55.59",
+        "week_start": "Tue, 25 Jul 2023 00:00:00 GMT",
+        "wind_angle": "175.23",
+        "wind_gust_max_mph": "11.23",
+        "wind_gust_mph": "2.23",
+        "wind_speed_mph": "0.87"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 2,
+        "indoor_humidity_percent": "54.71",
+        "indoor_temperature_F": "75.01",
+        "outdoor_humidity_percent": "87.49",
+        "outdoor_temperature_F": "57.55",
+        "pressure_absolute_inHg": "28.83",
+        "pressure_relative_inHg": "28.83",
+        "rain_event_in": "1.78",
+        "rain_hourly_in": "0.01",
+        "rain_rate_inhr": "0.01",
+        "rain_total_in": "13.55",
+        "rain_weekly_in": "1.78",
+        "rain_yearly_in": "13.55",
+        "solar_radiation_Wm2": "75.57",
+        "solar_uv": "0.45",
+        "temp_ch1_F": "76.38",
+        "temp_humidity_percent": "52.37",
+        "week_start": "Wed, 26 Jul 2023 00:00:00 GMT",
+        "wind_angle": "201.86",
+        "wind_gust_max_mph": "9.05",
+        "wind_gust_mph": "2.79",
+        "wind_speed_mph": "1.03"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 3,
+        "indoor_humidity_percent": "48.73",
+        "indoor_temperature_F": "71.67",
+        "outdoor_humidity_percent": "68.27",
+        "outdoor_temperature_F": "61.80",
+        "pressure_absolute_inHg": "28.96",
+        "pressure_relative_inHg": "28.96",
+        "rain_event_in": "1.05",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "13.71",
+        "rain_weekly_in": "1.94",
+        "rain_yearly_in": "13.71",
+        "solar_radiation_Wm2": "143.02",
+        "solar_uv": "1.07",
+        "temp_ch1_F": "72.85",
+        "temp_humidity_percent": "46.81",
+        "week_start": "Thu, 27 Jul 2023 00:00:00 GMT",
+        "wind_angle": "263.05",
+        "wind_gust_max_mph": "8.71",
+        "wind_gust_mph": "3.00",
+        "wind_speed_mph": "1.12"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
 
 
+##  Získání všech agregovaných meteorologický data z databáze
 
+`{{baseUrl}}/api/data/weekly`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech týdenních agregovaných meteorologických dat z databáze. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 1,
+        "indoor_humidity_percent": "59.51",
+        "indoor_temperature_F": "73.44",
+        "outdoor_humidity_percent": "79.48",
+        "outdoor_temperature_F": "63.89",
+        "pressure_absolute_inHg": "28.86",
+        "pressure_relative_inHg": "28.86",
+        "rain_event_in": "0.75",
+        "rain_hourly_in": "0.01",
+        "rain_rate_inhr": "0.01",
+        "rain_total_in": "13.67",
+        "rain_weekly_in": "1.55",
+        "rain_yearly_in": "13.67",
+        "solar_radiation_Wm2": "100.80",
+        "solar_uv": "0.70",
+        "temp_ch1_F": "74.73",
+        "temp_humidity_percent": "56.48",
+        "week_start": "Sun, 30 Jul 2023 00:00:00 GMT",
+        "wind_angle": "234.42",
+        "wind_gust_max_mph": "9.24",
+        "wind_gust_mph": "2.86",
+        "wind_speed_mph": "1.11"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 2,
+        "indoor_humidity_percent": "60.65",
+        "indoor_temperature_F": "73.31",
+        "outdoor_humidity_percent": "78.70",
+        "outdoor_temperature_F": "64.49",
+        "pressure_absolute_inHg": "28.81",
+        "pressure_relative_inHg": "28.81",
+        "rain_event_in": "0.17",
+        "rain_hourly_in": "0.01",
+        "rain_rate_inhr": "0.01",
+        "rain_total_in": "14.16",
+        "rain_weekly_in": "0.21",
+        "rain_yearly_in": "14.16",
+        "solar_radiation_Wm2": "63.16",
+        "solar_uv": "0.36",
+        "temp_ch1_F": "73.70",
+        "temp_humidity_percent": "59.12",
+        "week_start": "Sun, 06 Aug 2023 00:00:00 GMT",
+        "wind_angle": "235.59",
+        "wind_gust_max_mph": "7.69",
+        "wind_gust_mph": "2.91",
+        "wind_speed_mph": "1.11"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 3,
+        "indoor_humidity_percent": "59.38",
+        "indoor_temperature_F": "69.56",
+        "outdoor_humidity_percent": "74.23",
+        "outdoor_temperature_F": "62.27",
+        "pressure_absolute_inHg": "29.11",
+        "pressure_relative_inHg": "29.11",
+        "rain_event_in": "0.42",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "15.88",
+        "rain_weekly_in": "1.33",
+        "rain_yearly_in": "15.88",
+        "solar_radiation_Wm2": "100.32",
+        "solar_uv": "0.72",
+        "temp_ch1_F": "70.91",
+        "temp_humidity_percent": "56.81",
+        "week_start": "Sun, 13 Aug 2023 00:00:00 GMT",
+        "wind_angle": "239.28",
+        "wind_gust_max_mph": "7.15",
+        "wind_gust_mph": "2.55",
+        "wind_speed_mph": "0.98"
+    },
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání všech měsíčních agregovaných meteorologický data z databáze
+
+`{{baseUrl}}/api/data/monthly`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech měsíčních agregovaných meteorologických dat z databáze. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 1,
+        "indoor_humidity_percent": "59.51",
+        "indoor_temperature_F": "73.44",
+        "next_month_start": "Sat, 01 Jul 2023 00:00:00 GMT",
+        "outdoor_humidity_percent": "79.48",
+        "outdoor_temperature_F": "63.89",
+        "pressure_absolute_inHg": "28.86",
+        "pressure_relative_inHg": "28.86",
+        "rain_event_in": "0.75",
+        "rain_hourly_in": "0.01",
+        "rain_rate_inhr": "0.01",
+        "rain_total_in": "13.67",
+        "rain_weekly_in": "1.55",
+        "rain_yearly_in": "13.67",
+        "solar_radiation_Wm2": "100.80",
+        "solar_uv": "0.70",
+        "temp_ch1_F": "74.73",
+        "temp_humidity_percent": "56.48",
+        "wind_angle": "234.42",
+        "wind_gust_max_mph": "9.24",
+        "wind_gust_mph": "2.86",
+        "wind_speed_mph": "1.11"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 2,
+        "indoor_humidity_percent": "60.26",
+        "indoor_temperature_F": "74.51",
+        "next_month_start": "Tue, 01 Aug 2023 00:00:00 GMT",
+        "outdoor_humidity_percent": "74.70",
+        "outdoor_temperature_F": "68.23",
+        "pressure_absolute_inHg": "29.03",
+        "pressure_relative_inHg": "29.03",
+        "rain_event_in": "0.17",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "15.64",
+        "rain_weekly_in": "0.48",
+        "rain_yearly_in": "15.64",
+        "solar_radiation_Wm2": "91.55",
+        "solar_uv": "0.63",
+        "temp_ch1_F": "75.50",
+        "temp_humidity_percent": "58.32",
+        "wind_angle": "206.94",
+        "wind_gust_max_mph": "7.16",
+        "wind_gust_mph": "2.04",
+        "wind_speed_mph": "0.75"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 3,
+        "indoor_humidity_percent": "58.38",
+        "indoor_temperature_F": "74.19",
+        "next_month_start": "Fri, 01 Sep 2023 00:00:00 GMT",
+        "outdoor_humidity_percent": "77.88",
+        "outdoor_temperature_F": "63.62",
+        "pressure_absolute_inHg": "29.09",
+        "pressure_relative_inHg": "29.09",
+        "rain_event_in": "0.14",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "18.20",
+        "rain_weekly_in": "0.42",
+        "rain_yearly_in": "18.20",
+        "solar_radiation_Wm2": "62.77",
+        "solar_uv": "0.38",
+        "temp_ch1_F": "75.41",
+        "temp_humidity_percent": "57.05",
+        "wind_angle": "169.25",
+        "wind_gust_max_mph": "5.88",
+        "wind_gust_mph": "1.64",
+        "wind_speed_mph": "0.59"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
 
 
 
