@@ -1398,5 +1398,670 @@ Tento endpoint GET slouží k získání všech měsíčních agregovaných mete
 
 
 
+##  Testování API
+
+`{{baseUrl}}/api/test/run_all_tests`
+
+## Popis
+
+Tento endpoint GET slouží k tetování RESTful API serveru. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "num_errors": 0,
+    "num_failures": 1,
+    "num_skipped": 0,
+    "num_tests_run": 7,
+    "tests_passed": false
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+
+
+##  Získání všech dat meteorologický data z databáze z dnešního dne
+
+`{{baseUrl}}/api/data/meteostation/today`
+
+## Popis
+
+Tento endpoint GET slouží k získání dnešních meteorologických dat z RESTful API serveru. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 37000,
+        "indoor_humidity_percent": "55.00",
+        "indoor_temperature_F": "71.78",
+        "outdoor_humidity_percent": "76.00",
+        "outdoor_temperature_F": "58.10",
+        "pressure_absolute_inHg": "28.83",
+        "pressure_relative_inHg": "28.83",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.89",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "5.89",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "71.42",
+        "temp_humidity_percent": "59.00",
+        "time": "Fri, 03 May 2024 00:09:31 GMT",
+        "wind_angle": "254.00",
+        "wind_gust_max_mph": "2.46",
+        "wind_gust_mph": "2.46",
+        "wind_speed_mph": "0.89"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 37001,
+        "indoor_humidity_percent": "55.00",
+        "indoor_temperature_F": "71.42",
+        "outdoor_humidity_percent": "76.00",
+        "outdoor_temperature_F": "57.92",
+        "pressure_absolute_inHg": "28.82",
+        "pressure_relative_inHg": "28.82",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.89",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "5.89",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "71.42",
+        "temp_humidity_percent": "59.00",
+        "time": "Fri, 03 May 2024 00:19:32 GMT",
+        "wind_angle": "254.00",
+        "wind_gust_max_mph": "2.46",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+
+
+##  Získání všech dat meteorologický data z databáze z daného dne
+
+`{{baseUrl}}/api/data/meteostation/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání meteorologických dat z RESTful API serveru z vybraného dne. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 28302,
+        "indoor_humidity_percent": "58.00",
+        "indoor_temperature_F": "68.00",
+        "outdoor_humidity_percent": "97.00",
+        "outdoor_temperature_F": "44.96",
+        "pressure_absolute_inHg": "28.87",
+        "pressure_relative_inHg": "28.87",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "2.19",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "2.19",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "70.34",
+        "temp_humidity_percent": "59.00",
+        "time": "Sun, 03 Mar 2024 00:09:16 GMT",
+        "wind_angle": "65.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 28303,
+        "indoor_humidity_percent": "58.00",
+        "indoor_temperature_F": "67.82",
+        "outdoor_humidity_percent": "97.00",
+        "outdoor_temperature_F": "44.78",
+        "pressure_absolute_inHg": "28.87",
+        "pressure_relative_inHg": "28.87",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "2.19",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "2.19",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "70.16",
+        "temp_humidity_percent": "59.00",
+        "time": "Sun, 03 Mar 2024 00:19:17 GMT",
+        "wind_angle": "65.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+
+##  Získání všech maximálních meteorologický data z databáze z dnešního dne
+
+`{{baseUrl}}/api/data/meteostation/today/max`
+
+## Popis
+
+Tento endpoint GET slouží k získání dnešních maximálních hodnot z RESTful API serveru. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "battery_bat": "0.00",
+    "battery_wh65": "0.00",
+    "id": 37118,
+    "indoor_humidity_percent": "58.00",
+    "indoor_temperature_F": "73.94",
+    "outdoor_humidity_percent": "81.00",
+    "outdoor_temperature_F": "73.22",
+    "pressure_absolute_inHg": "28.91",
+    "pressure_relative_inHg": "28.91",
+    "rain_event_in": "0.00",
+    "rain_hourly_in": "0.00",
+    "rain_rate_inhr": "0.00",
+    "rain_total_in": "5.89",
+    "rain_weekly_in": "0.00",
+    "rain_yearly_in": "5.89",
+    "solar_radiation_Wm2": "600.30",
+    "solar_uv": "5.00",
+    "temp_ch1_F": "76.46",
+    "temp_humidity_percent": "60.00",
+    "time": "Fri, 03 May 2024 19:51:33 GMT",
+    "wind_angle": "353.00",
+    "wind_gust_max_mph": "20.13",
+    "wind_gust_mph": "14.99",
+    "wind_speed_mph": "10.29"
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání všech minimálních meteorologický data z databáze z dnešního dne
+
+`{{baseUrl}}/api/data/meteostation/today/min`
+
+## Popis
+
+Tento endpoint GET slouží k získání dnešních minimálních hodnot z RESTful API serveru. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "battery_bat": "0.00",
+    "battery_wh65": "0.00",
+    "id": 37000,
+    "indoor_humidity_percent": "46.00",
+    "indoor_temperature_F": "70.70",
+    "outdoor_humidity_percent": "42.00",
+    "outdoor_temperature_F": "55.22",
+    "pressure_absolute_inHg": "28.81",
+    "pressure_relative_inHg": "28.81",
+    "rain_event_in": "0.00",
+    "rain_hourly_in": "0.00",
+    "rain_rate_inhr": "0.00",
+    "rain_total_in": "5.89",
+    "rain_weekly_in": "0.00",
+    "rain_yearly_in": "5.89",
+    "solar_radiation_Wm2": "0.00",
+    "solar_uv": "0.00",
+    "temp_ch1_F": "71.42",
+    "temp_humidity_percent": "51.00",
+    "time": "Fri, 03 May 2024 00:09:31 GMT",
+    "wind_angle": "1.00",
+    "wind_gust_max_mph": "2.46",
+    "wind_gust_mph": "0.00",
+    "wind_speed_mph": "0.00"
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+
+##  Získání všech maximálních meteorologický data z databáze z vybraného dne
+
+`{{baseUrl}}/api/data/meteostation/max/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání maximálních meteorologických dat z RESTful API serveru za vybraný den. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "battery_bat": "0.00",
+    "battery_wh65": "0.00",
+    "id": 28444,
+    "indoor_humidity_percent": "58.00",
+    "indoor_temperature_F": "70.34",
+    "outdoor_humidity_percent": "97.00",
+    "outdoor_temperature_F": "60.62",
+    "pressure_absolute_inHg": "28.87",
+    "pressure_relative_inHg": "28.87",
+    "rain_event_in": "0.00",
+    "rain_hourly_in": "0.00",
+    "rain_rate_inhr": "0.00",
+    "rain_total_in": "2.19",
+    "rain_weekly_in": "0.00",
+    "rain_yearly_in": "2.19",
+    "solar_radiation_Wm2": "306.69",
+    "solar_uv": "3.00",
+    "temp_ch1_F": "71.06",
+    "temp_humidity_percent": "59.00",
+    "time": "Sun, 03 Mar 2024 23:51:43 GMT",
+    "wind_angle": "359.00",
+    "wind_gust_max_mph": "17.45",
+    "wind_gust_mph": "12.53",
+    "wind_speed_mph": "8.50"
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání všech minimálních meteorologický data z databáze z vybraného dne
+
+`{{baseUrl}}/api/data/meteostation/min/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání minimálních meteorologických dat z RESTful API serveru za vybraný den. Je požadován JWT token.
+
+## Response Body 200
+```json
+{
+    "battery_bat": "0.00",
+    "battery_wh65": "0.00",
+    "id": 28302,
+    "indoor_humidity_percent": "46.00",
+    "indoor_temperature_F": "64.22",
+    "outdoor_humidity_percent": "55.00",
+    "outdoor_temperature_F": "38.12",
+    "pressure_absolute_inHg": "28.75",
+    "pressure_relative_inHg": "28.75",
+    "rain_event_in": "0.00",
+    "rain_hourly_in": "0.00",
+    "rain_rate_inhr": "0.00",
+    "rain_total_in": "2.19",
+    "rain_weekly_in": "0.00",
+    "rain_yearly_in": "2.19",
+    "solar_radiation_Wm2": "0.00",
+    "solar_uv": "0.00",
+    "temp_ch1_F": "66.38",
+    "temp_humidity_percent": "50.00",
+    "time": "Sun, 03 Mar 2024 00:09:16 GMT",
+    "wind_angle": "3.00",
+    "wind_gust_max_mph": "0.00",
+    "wind_gust_mph": "0.00",
+    "wind_speed_mph": "0.00"
+}
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+
+
+##  Získání všech hodinových týdenních meteorologický data z databáze z vybraného týdne
+
+`{{baseUrl}}/api/data/hourly/weekly/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k záskání hodinových meteorologických dat z RESTful API serveru ze zadaného týdne. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 8568,
+        "indoor_humidity_percent": "51.50",
+        "indoor_temperature_F": "66.32",
+        "outdoor_humidity_percent": "92.67",
+        "outdoor_temperature_F": "35.66",
+        "pressure_absolute_inHg": "28.77",
+        "pressure_relative_inHg": "28.77",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "1.80",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "1.80",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "67.25",
+        "temp_humidity_percent": "53.33",
+        "time": "Mon, 26 Feb 2024 00:00:00 GMT",
+        "wind_angle": "255.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 8569,
+        "indoor_humidity_percent": "52.17",
+        "indoor_temperature_F": "65.39",
+        "outdoor_humidity_percent": "93.67",
+        "outdoor_temperature_F": "35.15",
+        "pressure_absolute_inHg": "28.77",
+        "pressure_relative_inHg": "28.77",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "1.80",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "1.80",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "66.68",
+        "temp_humidity_percent": "54.00",
+        "time": "Mon, 26 Feb 2024 01:00:00 GMT",
+        "wind_angle": "255.00",
+        "wind_gust_max_mph": "0.00",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání všech čtyřhodinových meteorologický data z databáze z vybraného měsíce
+
+`{{baseUrl}}/api/data/4hourly/monthly/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání čtyřhodinoných meteorologických dat z RESTful API serveru za vybraný měsíc. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 4052,
+        "indoor_humidity_percent": "44.83",
+        "indoor_temperature_F": "69.80",
+        "outdoor_humidity_percent": "86.17",
+        "outdoor_temperature_F": "35.39",
+        "pressure_absolute_inHg": "29.36",
+        "pressure_relative_inHg": "29.36",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "0.00",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "0.00",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "70.28",
+        "temp_humidity_percent": "48.00",
+        "time": "Thu, 01 Feb 2024 00:00:00 GMT",
+        "wind_angle": "266.67",
+        "wind_gust_max_mph": "21.32",
+        "wind_gust_mph": "13.76",
+        "wind_speed_mph": "6.67"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 4056,
+        "indoor_humidity_percent": "50.50",
+        "indoor_temperature_F": "67.19",
+        "outdoor_humidity_percent": "90.00",
+        "outdoor_temperature_F": "35.24",
+        "pressure_absolute_inHg": "29.28",
+        "pressure_relative_inHg": "29.28",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "0.00",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "0.00",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "67.91",
+        "temp_humidity_percent": "52.00",
+        "time": "Thu, 01 Feb 2024 04:00:00 GMT",
+        "wind_angle": "247.50",
+        "wind_gust_max_mph": "29.56",
+        "wind_gust_mph": "17.93",
+        "wind_speed_mph": "5.89"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
+##  Získání všech denních meteorologický data z databáze z vybraného roku
+
+`{{baseUrl}}/api/data/daily/yearly/<date>`
+
+## Popis
+
+Tento endpoint GET slouží k získání denních ročních meteorologických dat z RESTful API serveru. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 1,
+        "indoor_humidity_percent": "59.66",
+        "indoor_temperature_F": "76.14",
+        "outdoor_humidity_percent": "85.41",
+        "outdoor_temperature_F": "63.85",
+        "pressure_absolute_inHg": "28.69",
+        "pressure_relative_inHg": "28.69",
+        "rain_event_in": "1.48",
+        "rain_hourly_in": "0.03",
+        "rain_rate_inhr": "0.02",
+        "rain_total_in": "13.25",
+        "rain_weekly_in": "1.48",
+        "rain_yearly_in": "13.25",
+        "solar_radiation_Wm2": "72.81",
+        "solar_uv": "0.45",
+        "temp_ch1_F": "78.04",
+        "temp_humidity_percent": "55.59",
+        "week_start": "Tue, 25 Jul 2023 00:00:00 GMT",
+        "wind_angle": "175.23",
+        "wind_gust_max_mph": "11.23",
+        "wind_gust_mph": "2.23",
+        "wind_speed_mph": "0.87"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 2,
+        "indoor_humidity_percent": "54.71",
+        "indoor_temperature_F": "75.01",
+        "outdoor_humidity_percent": "87.49",
+        "outdoor_temperature_F": "57.55",
+        "pressure_absolute_inHg": "28.83",
+        "pressure_relative_inHg": "28.83",
+        "rain_event_in": "1.78",
+        "rain_hourly_in": "0.01",
+        "rain_rate_inhr": "0.01",
+        "rain_total_in": "13.55",
+        "rain_weekly_in": "1.78",
+        "rain_yearly_in": "13.55",
+        "solar_radiation_Wm2": "75.57",
+        "solar_uv": "0.45",
+        "temp_ch1_F": "76.38",
+        "temp_humidity_percent": "52.37",
+        "week_start": "Wed, 26 Jul 2023 00:00:00 GMT",
+        "wind_angle": "201.86",
+        "wind_gust_max_mph": "9.05",
+        "wind_gust_mph": "2.79",
+        "wind_speed_mph": "1.03"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+##  Získání všech posledních denních meteorologický dat z databáze
+
+`{{baseUrl}}/api/data/meteostation/all_last_data`
+
+## Popis
+
+Tento endpoint GET slouží k získání všech posledních denních dat z RESTful API serveru. Je požadován JWT token.
+
+## Response Body 200
+```json
+[
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 37000,
+        "indoor_humidity_percent": "55.00",
+        "indoor_temperature_F": "71.78",
+        "outdoor_humidity_percent": "76.00",
+        "outdoor_temperature_F": "58.10",
+        "pressure_absolute_inHg": "28.83",
+        "pressure_relative_inHg": "28.83",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.89",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "5.89",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "71.42",
+        "temp_humidity_percent": "59.00",
+        "time": "Fri, 03 May 2024 00:09:31 GMT",
+        "wind_angle": "254.00",
+        "wind_gust_max_mph": "2.46",
+        "wind_gust_mph": "2.46",
+        "wind_speed_mph": "0.89"
+    },
+    {
+        "battery_bat": "0.00",
+        "battery_wh65": "0.00",
+        "id": 37001,
+        "indoor_humidity_percent": "55.00",
+        "indoor_temperature_F": "71.42",
+        "outdoor_humidity_percent": "76.00",
+        "outdoor_temperature_F": "57.92",
+        "pressure_absolute_inHg": "28.82",
+        "pressure_relative_inHg": "28.82",
+        "rain_event_in": "0.00",
+        "rain_hourly_in": "0.00",
+        "rain_rate_inhr": "0.00",
+        "rain_total_in": "5.89",
+        "rain_weekly_in": "0.00",
+        "rain_yearly_in": "5.89",
+        "solar_radiation_Wm2": "0.00",
+        "solar_uv": "0.00",
+        "temp_ch1_F": "71.42",
+        "temp_humidity_percent": "59.00",
+        "time": "Fri, 03 May 2024 00:19:32 GMT",
+        "wind_angle": "254.00",
+        "wind_gust_max_mph": "2.46",
+        "wind_gust_mph": "0.00",
+        "wind_speed_mph": "0.00"
+    },
+    ...
+]
+```
+
+## Response Body 401
+```json
+{
+    "msg": "Missing Authorization Header"
+}
+```
+
+
 
 
